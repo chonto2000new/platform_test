@@ -1,8 +1,12 @@
 [gd_scene format=3 uid="uid://b67jp30e0jujs"]
 
 [ext_resource type="Script" uid="uid://drgh0lqcco2lc" path="res://scenes/enemies/booses/apple_ball_atack.gd" id="1_sqfii"]
+[ext_resource type="Shader" uid="uid://lyflmhhy6hk6" path="res://scenes/enemies/booses/circle_ball.gdshader" id="2_ecc31"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2y5ul"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ss6og"]
+shader = ExtResource("2_ecc31")
 
 [node name="AppleBallAtack" type="Area2D" unique_id=983065605]
 collision_layer = 16
@@ -13,5 +17,13 @@ script = ExtResource("1_sqfii")
 shape = SubResource("CircleShape2D_2y5ul")
 
 [node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=76458435]
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=908291184]
+material = SubResource("ShaderMaterial_ss6og")
+offset_left = -10.0
+offset_top = -10.0
+offset_right = 10.0
+offset_bottom = 10.0
+color = Color(0.6053809, 0.04511711, 0.13763833, 1)
 
 [connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

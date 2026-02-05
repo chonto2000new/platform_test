@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://e8rxf15y7e77" path="res://bola_fuego.tscn" id="8_c0uld"]
 [ext_resource type="Script" uid="uid://nhcdua33gh3d" path="res://scenes/enemies/booses/apple_enemy_state_bounce_attack.gd" id="9_ywxip"]
 [ext_resource type="PackedScene" uid="uid://j6vqynuqoyy7" path="res://scenes/enemies/booses/picos.tscn" id="10_0imya"]
+[ext_resource type="Texture2D" uid="uid://hkdxljf1im2e" path="res://sprites/enemies/testboss.png" id="11_jp4qc"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bpapc"]
 size = Vector2(154, 144)
@@ -68,5 +69,9 @@ wait_time = 1.5
 [node name="cambiar_face" type="Timer" parent="." unique_id=47657318]
 wait_time = 4.0
 one_shot = true
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=880723894]
+scale = Vector2(0.289, 0.289)
+texture = ExtResource("11_jp4qc")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
