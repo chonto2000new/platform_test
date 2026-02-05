@@ -1,0 +1,692 @@
+[gd_scene format=3 uid="uid://bqsmj7ib2ct8u"]
+
+[ext_resource type="Script" uid="uid://cfmi0gs7xioqk" path="res://main_menu.gd" id="1_nl8w3"]
+[ext_resource type="PackedScene" uid="uid://c04yjwktavhik" path="res://scenes/menu/save_slot.tscn" id="2_3rkf3"]
+[ext_resource type="FontFile" uid="uid://cuoho1naccuq2" path="res://scenes/menu/founds/monogram.ttf" id="2_hj162"]
+[ext_resource type="Texture2D" uid="uid://diy0v4oyworih" path="res://icon.svg" id="3_247la"]
+[ext_resource type="LabelSettings" uid="uid://cxgra0sh18x1v" path="res://scenes/menu/founds/texto_pixel_art.tres" id="3_xn6kt"]
+[ext_resource type="AudioStream" uid="uid://brruvy15wxmj7" path="res://sounds/music/menu/Contra (NES) Music - Title Theme.ogg" id="4_kiqgm"]
+[ext_resource type="PackedScene" uid="uid://b82r3jelsfqey" path="res://scenes/menu/option_button_config.tscn" id="7_isoef"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_xn6kt"]
+font = ExtResource("2_hj162")
+font_size = 133
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_kiqgm"]
+
+[sub_resource type="Animation" id="Animation_kiqgm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1082, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LabelTitulo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1194, 120)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LabelTitulo:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuInicio:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1252, 358)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MenuInicio:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MenuInicio/BtnJugar:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 47)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MenuInicio/BtnJugar:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MenuInicio/BtnOpciones:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 82)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MenuInicio/BtnOpciones:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MenuInicio/BtnSalir:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 117)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("MenuInicio/BtnSalir:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("player:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1681, 403)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("player:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("player:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_247la"]
+resource_name = "intro"
+length = 7.133333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1082, 0), Vector2(2, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("LabelTitulo:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1194, 120), Vector2(114, 120)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("LabelTitulo:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MenuInicio:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1252, 358), Vector2(172, 358)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MenuInicio:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MenuInicio/BtnJugar:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 47), Vector2(0, 47)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MenuInicio/BtnJugar:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("MenuInicio/BtnOpciones:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 82), Vector2(0, 82)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MenuInicio/BtnOpciones:rotation")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("MenuInicio/BtnSalir:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 117), Vector2(0, 117)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("MenuInicio/BtnSalir:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/12/type = "value"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("player:position")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1681, 403), Vector2(601, 403)]
+}
+tracks/13/type = "value"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("player:rotation")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/14/type = "value"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("player:visible")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+tracks/15/type = "audio"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("intro sound")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"clips": [{
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource("4_kiqgm")
+}],
+"times": PackedFloat32Array(1.9)
+}
+tracks/15/use_blend = true
+tracks/16/type = "method"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath(".")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"times": PackedFloat32Array(2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_on_intro_terminada"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kiqgm"]
+_data = {
+&"RESET": SubResource("Animation_kiqgm"),
+&"intro": SubResource("Animation_247la")
+}
+
+[node name="MainMenu" type="Control" unique_id=1674247526]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nl8w3")
+
+[node name="noMoveBack" type="ColorRect" parent="." unique_id=1641381484]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.043137256, 0.043137256, 1)
+
+[node name="Background" type="ColorRect" parent="." unique_id=876600905]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1082.0
+offset_right = 1082.0005
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043039158, 0.04303915, 0.04303915, 1)
+
+[node name="LabelTitulo" type="Label" parent="." unique_id=1519283417]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.4940001
+anchor_top = 0.316
+anchor_right = 1.4940001
+anchor_bottom = 0.316
+offset_left = -419.52014
+offset_top = -107.520004
+offset_right = 428.48108
+offset_bottom = 29.479996
+grow_horizontal = 2
+grow_vertical = 2
+text = "El salchichonador"
+label_settings = SubResource("LabelSettings_xn6kt")
+
+[node name="MenuInicio" type="VBoxContainer" parent="." unique_id=1365057194]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.13800001
+anchor_top = 0.5
+anchor_right = 0.367
+anchor_bottom = 0.776
+offset_left = 1102.96
+offset_top = -2.0
+offset_right = 1062.632
+offset_bottom = -5.7200317
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="BtnJugar" type="Button" parent="MenuInicio" unique_id=584049037]
+texture_filter = 1
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnSalir")
+focus_neighbor_bottom = NodePath("../BtnOpciones")
+theme_override_fonts/font = ExtResource("2_hj162")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kiqgm")
+text = "Jugar"
+flat = true
+alignment = 0
+
+[node name="BtnOpciones" type="Button" parent="MenuInicio" unique_id=555989592]
+texture_filter = 1
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnJugar")
+focus_neighbor_bottom = NodePath("../BtnSalir")
+theme_override_fonts/font = ExtResource("2_hj162")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kiqgm")
+text = "Opciones"
+flat = true
+alignment = 0
+
+[node name="BtnSalir" type="Button" parent="MenuInicio" unique_id=2031888265]
+texture_filter = 1
+layout_mode = 2
+focus_neighbor_top = NodePath("../BtnOpciones")
+focus_neighbor_bottom = NodePath("../BtnJugar")
+theme_override_fonts/font = ExtResource("2_hj162")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/focus = SubResource("StyleBoxEmpty_kiqgm")
+text = "Salir"
+flat = true
+alignment = 0
+
+[node name="MenuSlots" type="Control" parent="." unique_id=139822916]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="select_game" type="Label" parent="MenuSlots" unique_id=1863658066]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.363
+anchor_right = 0.5
+anchor_bottom = 0.363
+offset_left = -26.0
+offset_top = -7.360016
+offset_right = 29.0
+offset_bottom = 15.639984
+text = "GAMES"
+label_settings = ExtResource("3_xn6kt")
+
+[node name="HBoxSlots" type="HBoxContainer" parent="MenuSlots" unique_id=1538277732]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.163
+anchor_top = 0.40100002
+anchor_right = 0.83900005
+anchor_bottom = 0.799
+offset_left = -0.040008545
+offset_top = 0.27996826
+offset_right = -0.12005615
+offset_bottom = -0.2800293
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="SaveSlot" parent="MenuSlots/HBoxSlots" unique_id=1239252214 instance=ExtResource("2_3rkf3")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../SaveSlot3")
+focus_neighbor_right = NodePath("../SaveSlot2")
+focus_neighbor_bottom = NodePath("../../BtnVolver")
+
+[node name="SaveSlot2" parent="MenuSlots/HBoxSlots" unique_id=1822981772 instance=ExtResource("2_3rkf3")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../SaveSlot")
+focus_neighbor_right = NodePath("../SaveSlot3")
+focus_neighbor_bottom = NodePath("../../BtnVolver")
+
+[node name="SaveSlot3" parent="MenuSlots/HBoxSlots" unique_id=1093953306 instance=ExtResource("2_3rkf3")]
+layout_mode = 2
+focus_neighbor_left = NodePath("../SaveSlot2")
+focus_neighbor_right = NodePath("../SaveSlot")
+focus_neighbor_bottom = NodePath("../../BtnVolver")
+
+[node name="BtnVolver" type="Button" parent="MenuSlots" unique_id=1194719460]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.851
+anchor_right = 0.5
+anchor_bottom = 0.851
+offset_left = -27.0
+offset_top = -15.720032
+offset_right = 29.0
+offset_bottom = 15.279968
+focus_neighbor_top = NodePath("../HBoxSlots/SaveSlot2")
+theme_override_fonts/font = ExtResource("2_hj162")
+theme_override_font_sizes/font_size = 32
+text = "volver"
+
+[node name="selector" type="TextureRect" parent="." unique_id=1675876242]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1211.0
+offset_top = 445.0
+offset_right = 1378.3856
+offset_bottom = 622.7776
+scale = Vector2(0.203125, 0.14062515)
+texture = ExtResource("3_247la")
+
+[node name="player" type="TextureRect" parent="." unique_id=620062807]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.61300004
+anchor_top = 0.64900005
+anchor_right = 0.61300004
+anchor_bottom = 0.64900005
+offset_left = 1018.95996
+offset_top = -64.28003
+offset_right = 1146.9601
+offset_bottom = 63.71997
+texture = ExtResource("3_247la")
+
+[node name="intro" type="AnimationPlayer" parent="." unique_id=792428935]
+unique_name_in_owner = true
+libraries/ = SubResource("AnimationLibrary_kiqgm")
+
+[node name="intro sound" type="AudioStreamPlayer2D" parent="." unique_id=232771012]
+
+[node name="Options" type="Control" parent="." unique_id=299987896]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Options" unique_id=1935841203]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Options/MarginContainer" unique_id=1501572640]
+layout_mode = 2
+
+[node name="AllOptions" type="VBoxContainer" parent="Options/MarginContainer/HBoxContainer" unique_id=1996234627]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="options" type="Label" parent="Options/MarginContainer/HBoxContainer/AllOptions" unique_id=1089655019]
+layout_mode = 2
+size_flags_vertical = 0
+text = "OPTIONS"
+label_settings = ExtResource("3_xn6kt")
+horizontal_alignment = 1
+
+[node name="control" type="Button" parent="Options/MarginContainer/HBoxContainer/AllOptions" unique_id=1503411880]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hj162")
+theme_override_font_sizes/font_size = 32
+text = "CONTROL"
+
+[node name="volver" type="Button" parent="Options/MarginContainer/HBoxContainer/AllOptions" unique_id=1098467066]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("2_hj162")
+theme_override_font_sizes/font_size = 32
+text = "volver"
+
+[node name="ControlData" type="VBoxContainer" parent="Options/MarginContainer/HBoxContainer" unique_id=587695588]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 3.0
+
+[node name="Label" type="Label" parent="Options/MarginContainer/HBoxContainer/ControlData" unique_id=2037452564]
+layout_mode = 2
+text = "CONTROLS"
+label_settings = ExtResource("3_xn6kt")
+horizontal_alignment = 1
+
+[node name="buttons" type="VBoxContainer" parent="Options/MarginContainer/HBoxContainer/ControlData" unique_id=1949502692]
+layout_mode = 2
+
+[node name="button" parent="Options/MarginContainer/HBoxContainer/ControlData/buttons" unique_id=2024809250 instance=ExtResource("7_isoef")]
+layout_mode = 2
+
+[node name="default" type="Button" parent="Options/MarginContainer/HBoxContainer/ControlData" unique_id=57897612]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_hj162")
+theme_override_font_sizes/font_size = 32
+text = "default"
+
+[connection signal="pressed" from="MenuInicio/BtnJugar" to="." method="_on_btn_jugar_pressed"]
+[connection signal="pressed" from="MenuInicio/BtnOpciones" to="." method="_on_btn_opciones_pressed"]
+[connection signal="pressed" from="MenuInicio/BtnSalir" to="." method="_on_btn_salir_pressed"]
+[connection signal="pressed" from="MenuSlots/BtnVolver" to="." method="_on_btn_volver_pressed"]
+[connection signal="pressed" from="Options/MarginContainer/HBoxContainer/AllOptions/volver" to="." method="_on_btn_volver_pressed"]
+[connection signal="pressed" from="Options/MarginContainer/HBoxContainer/ControlData/default" to="." method="_on_btn_reset_pressed"]

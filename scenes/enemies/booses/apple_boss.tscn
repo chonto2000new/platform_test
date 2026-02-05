@@ -1,0 +1,72 @@
+[gd_scene format=3 uid="uid://br46xnllhdqx8"]
+
+[ext_resource type="Script" uid="uid://bmevs42xti7kr" path="res://scenes/enemies/booses/boss_global.gd" id="1_wv1ed"]
+[ext_resource type="Script" uid="uid://0jnjbdmlqedf" path="res://state_machine/state_machine.gd" id="2_hcuu5"]
+[ext_resource type="Script" uid="uid://c6xv3smavsafh" path="res://scenes/enemies/booses/apple_enemy_state_waiting.gd" id="3_07k1x"]
+[ext_resource type="Script" uid="uid://ddpo0x71txdxu" path="res://scenes/enemies/booses/apple_enemy_state_idle.gd" id="4_hcuu5"]
+[ext_resource type="Script" uid="uid://cktiq5gdtp0d4" path="res://scenes/enemies/booses/apple_enemy_state_moving.gd" id="5_07k1x"]
+[ext_resource type="Script" uid="uid://cku6wmedur8o3" path="res://scenes/enemies/booses/apple_enemy_state_circle_attack.gd" id="6_u8j48"]
+[ext_resource type="Script" uid="uid://d0w2ayi5vxj1i" path="res://scenes/enemies/booses/apple_enemy_state_flame_attack.gd" id="7_whw65"]
+[ext_resource type="PackedScene" uid="uid://e8rxf15y7e77" path="res://bola_fuego.tscn" id="8_c0uld"]
+[ext_resource type="Script" uid="uid://nhcdua33gh3d" path="res://scenes/enemies/booses/apple_enemy_state_bounce_attack.gd" id="9_ywxip"]
+[ext_resource type="PackedScene" uid="uid://j6vqynuqoyy7" path="res://scenes/enemies/booses/picos.tscn" id="10_0imya"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bpapc"]
+size = Vector2(154, 144)
+
+[node name="AppleBoss" type="CharacterBody2D" unique_id=890458425]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_wv1ed")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=442300514]
+shape = SubResource("RectangleShape2D_bpapc")
+
+[node name="StateMachine" type="Node" parent="." unique_id=704589756 node_paths=PackedStringArray("default_state")]
+script = ExtResource("2_hcuu5")
+default_state = NodePath("AppleEnemyStateWaiting")
+metadata/_custom_type_script = "uid://0jnjbdmlqedf"
+
+[node name="AppleEnemyStateWaiting" type="Node" parent="StateMachine" unique_id=829964277]
+script = ExtResource("3_07k1x")
+
+[node name="AppleEnemyStateIdle" type="Node" parent="StateMachine" unique_id=1813421256]
+script = ExtResource("4_hcuu5")
+
+[node name="AppleEnemyStateMoving" type="Node" parent="StateMachine" unique_id=279093734]
+script = ExtResource("5_07k1x")
+
+[node name="AppleEnemyStateCircleAttack" type="Node" parent="StateMachine" unique_id=474665742]
+script = ExtResource("6_u8j48")
+
+[node name="AppleEnemyStateFlameAttack" type="Node" parent="StateMachine" unique_id=1089607640]
+script = ExtResource("7_whw65")
+bomb_scene = ExtResource("8_c0uld")
+
+[node name="AppleEnemyStateBounceAttack" type="Node" parent="StateMachine" unique_id=1418258434]
+script = ExtResource("9_ywxip")
+spike_scene = ExtResource("10_0imya")
+
+[node name="R_UP" type="RayCast2D" parent="." unique_id=1408607741]
+position = Vector2(0, -75.634)
+rotation = -3.1415927
+
+[node name="R_DOWN" type="RayCast2D" parent="." unique_id=1931901373]
+position = Vector2(0, 75)
+
+[node name="R_LEFT" type="RayCast2D" parent="." unique_id=1575036102]
+position = Vector2(-80.49, 0)
+rotation = 1.5707964
+
+[node name="R_RIGHT" type="RayCast2D" parent="." unique_id=343907365]
+position = Vector2(80, 0)
+rotation = -1.5707964
+
+[node name="Timer" type="Timer" parent="." unique_id=834907433]
+wait_time = 1.5
+
+[node name="cambiar_face" type="Timer" parent="." unique_id=47657318]
+wait_time = 4.0
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

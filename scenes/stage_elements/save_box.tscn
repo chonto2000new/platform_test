@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://dg5oxitkjirs"]
+
+[ext_resource type="Script" uid="uid://b2ury3sa2rlsb" path="res://scenes/stage_elements/save_box.gd" id="1_f1x8s"]
+[ext_resource type="Texture2D" uid="uid://diy0v4oyworih" path="res://icon.svg" id="2_nlxkd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
+size = Vector2(32, 33)
+
+[node name="save_box" type="Area2D" unique_id=1134507631]
+collision_layer = 0
+collision_mask = 32
+script = ExtResource("1_f1x8s")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=818044787]
+scale = Vector2(0.2734375, 0.2734375)
+texture = ExtResource("2_nlxkd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=312596035]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_1bvp3")
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]

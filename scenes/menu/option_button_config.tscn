@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://b82r3jelsfqey"]
+
+[ext_resource type="LabelSettings" uid="uid://cxgra0sh18x1v" path="res://scenes/menu/founds/texto_pixel_art.tres" id="1_an16k"]
+[ext_resource type="FontFile" uid="uid://cuoho1naccuq2" path="res://scenes/menu/founds/monogram.ttf" id="2_wb00c"]
+[ext_resource type="Script" uid="uid://edjwwa52b3td" path="res://scenes/menu/change_button.gd" id="3_n2ekc"]
+
+[node name="button" type="HBoxContainer" unique_id=2024809250]
+
+[node name="button_label" type="Label" parent="." unique_id=1202262851]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "hh"
+label_settings = ExtResource("1_an16k")
+horizontal_alignment = 1
+
+[node name="button" type="Button" parent="." unique_id=1462777360 groups=["BotonesRemap"]]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 1.8
+theme_override_fonts/font = ExtResource("2_wb00c")
+theme_override_font_sizes/font_size = 32
+text = "Jump"
+script = ExtResource("3_n2ekc")
+
+[connection signal="pressed" from="button" to="button" method="_on_pressed"]

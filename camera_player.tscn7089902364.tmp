@@ -1,0 +1,35 @@
+[gd_scene load_steps=2 format=3 uid="uid://bk70r6a6x86kg"]
+
+[sub_resource type="GDScript" id="GDScript_uknqx"]
+script/source = "extends Camera2D
+
+# Arrastra tu nodo TileMap aquí desde el editor
+@export var tilemap: TileMap
+
+func _ready():
+	# Esperamos a que el TileMap esté listo para asegurar que los datos son correctos
+	await tilemap.ready
+	
+	# 1. Obtenemos el rectángulo en coordenadas de tiles
+	var map_rect_tiles = tilemap.get_used_rect()
+	
+	# 2. Obtenemos el tamaño de cada tile en píxeles (ej: 16x16, 32x32)
+	# En Godot 4, el tamaño del tile se obtiene del TileSet
+	var tile_size = tilemap.tile_set.tile_size
+	
+	# 3. Calculamos los límites en píxeles
+	limit_left = map_rect_tiles.position.x * tile_size.x
+	limit_top = map_rect_tiles.position.y * tile_size.y
+	limit_right = map_rect_tiles.end.x * tile_size.x
+	limit_bottom = map_rect_tiles.end.y * tile_size.y
+
+	print(\"Límites de la cámara establecidos en píxeles:\")
+	print(\"Izquierda: \", limit_left, \" | Derecha: \", limit_right)
+	print(\"Arriba: \", limit_top, \" | Abajo: \", limit_bottom)
+"
+
+[node name="CameraPlayer" type="Camera2D"]
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+script = SubResource("GDScript_uknqx")

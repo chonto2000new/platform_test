@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://cko87jm4kdfc5"]
+
+[ext_resource type="Script" uid="uid://b01yve6d6mcqw" path="res://scenes/menu/start_logo.gd" id="1_3lumr"]
+[ext_resource type="Texture2D" uid="uid://diy0v4oyworih" path="res://icon.svg" id="1_vu18h"]
+[ext_resource type="LabelSettings" uid="uid://cxgra0sh18x1v" path="res://scenes/menu/founds/texto_pixel_art.tres" id="2_rx04x"]
+
+[sub_resource type="Animation" id="Animation_3lumr"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("present:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ch:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rx04x"]
+resource_name = "start"
+length = 5.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("present:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0009999999, 5),
+"transitions": PackedFloat32Array(2.1435478, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ch:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.0009999999, 5),
+"transitions": PackedFloat32Array(2.1435478, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("TextureRect:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.0009999999, 5),
+"transitions": PackedFloat32Array(2.1435478, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(5),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"cambiar_de_nivel"
+}]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_0k4eb"]
+_data = {
+&"RESET": SubResource("Animation_3lumr"),
+&"start": SubResource("Animation_rx04x")
+}
+
+[node name="startLogos" type="Control" unique_id=880973343]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_3lumr")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1691329455]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.043137256, 0.043137256, 0.043137256, 1)
+
+[node name="present" type="Label" parent="." unique_id=777473215]
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.50100005
+anchor_top = 0.54700005
+anchor_right = 0.50100005
+anchor_bottom = 0.54700005
+offset_left = -34.08008
+offset_top = -11.840027
+offset_right = 34.91992
+offset_bottom = 11.159973
+grow_horizontal = 2
+grow_vertical = 2
+text = "presenta"
+label_settings = ExtResource("2_rx04x")
+horizontal_alignment = 1
+
+[node name="ch" type="Label" parent="." unique_id=421480792]
+modulate = Color(1, 1, 1, 0)
+texture_filter = 2
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.50600004
+anchor_right = 0.5
+anchor_bottom = 0.50600004
+offset_left = -50.0
+offset_top = -11.320038
+offset_right = 56.0
+offset_bottom = 11.679962
+grow_horizontal = 2
+grow_vertical = 0
+text = "CHONTO2000"
+label_settings = ExtResource("2_rx04x")
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=544498143]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.46300003
+anchor_top = 0.44000003
+anchor_right = 0.54
+anchor_bottom = 0.5
+offset_left = -20.04004
+offset_top = -100.80002
+offset_right = 24.799988
+offset_bottom = -16.0
+texture = ExtResource("1_vu18h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1628792286]
+libraries/ = SubResource("AnimationLibrary_0k4eb")
+autoplay = &"start"

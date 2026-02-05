@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b67jp30e0jujs"]
+
+[ext_resource type="Script" uid="uid://drgh0lqcco2lc" path="res://scenes/enemies/booses/apple_ball_atack.gd" id="1_sqfii"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2y5ul"]
+
+[node name="AppleBallAtack" type="Area2D" unique_id=983065605]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_sqfii")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2142311998]
+shape = SubResource("CircleShape2D_2y5ul")
+
+[node name="VisibleOnScreenEnabler2D" type="VisibleOnScreenEnabler2D" parent="." unique_id=76458435]
+
+[connection signal="screen_exited" from="VisibleOnScreenEnabler2D" to="." method="_on_visible_on_screen_enabler_2d_screen_exited"]

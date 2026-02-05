@@ -1,0 +1,128 @@
+[gd_scene format=3 uid="uid://c04yjwktavhik"]
+
+[ext_resource type="Script" uid="uid://bmtll8wfipweh" path="res://scenes/menu/save_slot.gd" id="1_r537s"]
+[ext_resource type="LabelSettings" uid="uid://cxgra0sh18x1v" path="res://scenes/menu/founds/texto_pixel_art.tres" id="2_frnow"]
+[ext_resource type="FontFile" uid="uid://cuoho1naccuq2" path="res://scenes/menu/founds/monogram.ttf" id="3_g7jl4"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_5wduq"]
+content_margin_left = 15.0
+content_margin_top = 15.0
+content_margin_right = 15.0
+content_margin_bottom = 15.0
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.22670749, 0.22670752, 0.22670731, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r537s"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_frnow"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g7jl4"]
+bg_color = Color(0.8, 0.8, 0.8, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.08468992, 0.08468994, 0.08468986, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_g7jl4"]
+font = ExtResource("3_g7jl4")
+
+[node name="SaveSlot" type="Button" unique_id=1239252214]
+anchors_preset = -1
+anchor_right = 0.185
+anchor_bottom = 0.41700003
+offset_right = 0.19999695
+offset_bottom = -0.24002075
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_styles/normal = SubResource("StyleBoxFlat_5wduq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_r537s")
+theme_override_styles/hover = SubResource("StyleBoxFlat_frnow")
+theme_override_styles/focus = SubResource("StyleBoxFlat_g7jl4")
+script = ExtResource("1_r537s")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=1485351119]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1844454159]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="slot_name" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1824785631]
+texture_filter = 2
+layout_mode = 2
+label_settings = ExtResource("2_frnow")
+
+[node name="deaths_count" type="Label" parent="MarginContainer/VBoxContainer" unique_id=280290440]
+texture_filter = 2
+layout_mode = 2
+label_settings = ExtResource("2_frnow")
+
+[node name="MenuPlay" type="VBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=2134038112]
+visible = false
+layout_mode = 2
+
+[node name="play" type="Button" parent="MarginContainer/VBoxContainer/MenuPlay" unique_id=1734421126]
+layout_mode = 2
+focus_neighbor_top = NodePath("../delete")
+focus_neighbor_bottom = NodePath("../delete")
+theme_override_fonts/font = ExtResource("3_g7jl4")
+theme_override_font_sizes/font_size = 32
+text = "Play"
+flat = true
+
+[node name="delete" type="Button" parent="MarginContainer/VBoxContainer/MenuPlay" unique_id=1758183309]
+layout_mode = 2
+focus_neighbor_top = NodePath("../play")
+focus_neighbor_bottom = NodePath("../play")
+theme_override_fonts/font = ExtResource("3_g7jl4")
+theme_override_font_sizes/font_size = 32
+text = "Delete Game"
+flat = true
+
+[node name="IsDelete" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MenuPlay" unique_id=1191597898]
+visible = false
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MenuPlay/IsDelete" unique_id=364160828]
+layout_mode = 2
+text = "Delete game?"
+label_settings = SubResource("LabelSettings_g7jl4")
+horizontal_alignment = 1
+
+[node name="yes" type="Button" parent="MarginContainer/VBoxContainer/MenuPlay/IsDelete" unique_id=1403791189]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_g7jl4")
+theme_override_font_sizes/font_size = 16
+text = "YES"
+
+[node name="no" type="Button" parent="MarginContainer/VBoxContainer/MenuPlay/IsDelete" unique_id=1859476241]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_g7jl4")
+theme_override_font_sizes/font_size = 16
+text = "NO"
+
+[node name="HSeparator" type="ColorRect" parent="MarginContainer/VBoxContainer" unique_id=768757595]
+texture_filter = 2
+custom_minimum_size = Vector2(4, 4)
+layout_mode = 2
+color = Color(0, 0, 0, 1)
+
+[node name="booses" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1604343762]
+texture_filter = 2
+layout_mode = 2
+label_settings = ExtResource("2_frnow")
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer" unique_id=1191463894]
+layout_mode = 2

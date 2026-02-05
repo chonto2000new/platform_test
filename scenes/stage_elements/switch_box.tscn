@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://btu6vcxpnbw1d"]
+
+[ext_resource type="Texture2D" uid="uid://btmflxbcfsxo5" path="res://sprites/terrain/switch_blocks-Sheet.png" id="1_c4m61"]
+[ext_resource type="Script" uid="uid://rtutgw4nufia" path="res://scenes/stage_elements/switch_box.gd" id="2_xbkrn"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbkrn"]
+texture = ExtResource("1_c4m61")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:0/0 = 0
+3:0/0 = 0
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+0:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+1:3/0 = 0
+1:3/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_p65sw"]
+physics_layer_0/collision_layer = 1
+sources/4 = SubResource("TileSetAtlasSource_xbkrn")
+
+[node name="switch_box" type="TileMapLayer"]
+tile_set = SubResource("TileSet_p65sw")
+script = ExtResource("2_xbkrn")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.312
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

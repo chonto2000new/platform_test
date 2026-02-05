@@ -1,0 +1,101 @@
+[gd_scene format=3 uid="uid://bk70r6a6x86kg"]
+
+[sub_resource type="GDScript" id="GDScript_uknqx"]
+script/source = "extends Camera2D
+
+# --- REFERENCIAS ---
+@export var player_target: Node2D
+@export var limit_reference : ReferenceRect
+
+# --- CONFIGURACIÓN ---
+@export var smoothing_speed: float = 8.0 
+@export_group(\"Look Ahead\")
+@export var look_ahead_distance: float = 100.0 
+@export var look_ahead_trigger_speed: float = 200.0
+
+var _current_look_ahead_y: float = 0.0
+
+# --- VARIABLES SHAKE ---
+# Eliminé 'random_strength' porque sobraba
+var shake_strength: float = 0.0 
+var shake_fade: float = 5.0
+
+func _ready():
+	if not player_target:
+		player_target = get_parent().find_child(\"player\")
+	
+	if limit_reference:
+		var rect = limit_reference.get_global_rect()
+		var view_size = get_viewport_rect().size / get_zoom()
+		
+		if rect.size.x < view_size.x:
+			var center_x = rect.position.x + rect.size.x / 2.0
+			var margin_x = view_size.x / 2.0
+			limit_left = int(center_x - margin_x)
+			limit_right = int(center_x + margin_x)
+		else:
+			limit_left = int(rect.position.x)
+			limit_right = int(rect.end.x)
+			
+		if rect.size.y < view_size.y:
+			var center_y = rect.position.y + rect.size.y / 2.0
+			var margin_y = view_size.y / 2.0
+			limit_top = int(center_y - margin_y)
+			limit_bottom = int(center_y + margin_y)
+		else:
+			limit_top = int(rect.position.y)
+			limit_bottom = int(rect.end.y)
+
+	if player_target:
+		position_smoothing_enabled = false
+		global_position = player_target.global_position
+		reset_smoothing() 
+		await get_tree().create_timer(0.1).timeout
+		position_smoothing_enabled = true
+		position_smoothing_speed = smoothing_speed
+
+func _physics_process(delta):
+	# --- CORRECCIÓN DEL SHAKE ---
+	if shake_strength > 0:
+		shake_strength = lerp(shake_strength, 0.0, shake_fade * delta)
+		offset = random_offset()
+		
+		# Si la fuerza es muy pequeña, la matamos para evitar micro-temblores
+		if shake_strength < 0.1:
+			shake_strength = 0
+			offset = Vector2.ZERO
+	else:
+		# IMPORTANTE: Asegura que el offset vuelva a 0 si no hay temblor
+		if offset != Vector2.ZERO:
+			offset = Vector2.ZERO
+	
+	# --- LÓGICA DE SEGUIMIENTO ---
+	if !player_target: return
+	
+	var target_pos = player_target.global_position
+	var target_look_offset = 0.0
+	
+	if \"velocity\" in player_target:
+		if player_target.velocity.y > look_ahead_trigger_speed: 
+			target_look_offset = look_ahead_distance
+	
+	_current_look_ahead_y = lerp(_current_look_ahead_y, target_look_offset, delta * 2.0)
+	target_pos.y += _current_look_ahead_y
+	
+	global_position = target_pos
+
+# --- FUNCIÓN CORREGIDA ---
+func apply_shake(strength: float, fade: float = 5.0):
+	shake_strength = strength # <--- AQUI ESTABA EL ERROR (antes asignabas a random_strength)
+	shake_fade = fade
+
+func random_offset() -> Vector2:
+	# Ahora usa shake_strength correctamente
+	return Vector2(randf_range(-shake_strength, shake_strength), randf_range(-shake_strength, shake_strength))
+"
+
+[node name="CameraPlayer" type="Camera2D" unique_id=1411364034 groups=["MainCamera"]]
+limit_smoothed = true
+drag_horizontal_enabled = true
+drag_vertical_enabled = true
+script = SubResource("GDScript_uknqx")

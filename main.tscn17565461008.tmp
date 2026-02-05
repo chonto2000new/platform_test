@@ -1,0 +1,114 @@
+[gd_scene load_steps=14 format=3 uid="uid://ce7vhku58l6l7"]
+
+[ext_resource type="PackedScene" uid="uid://cw6wpkryk6sij" path="res://player.tscn" id="1_ig7tw"]
+[ext_resource type="PackedScene" uid="uid://dg5oxitkjirs" path="res://save_box.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://dva0twn6ied5y" path="res://bounds_platfor.tscn" id="2_272bh"]
+[ext_resource type="PackedScene" uid="uid://bcfu6hb01s0el" path="res://ray_cast_2d.tscn" id="3_h2yge"]
+[ext_resource type="PackedScene" uid="uid://38h3cat2c15w" path="res://ballon.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://uwp1s5q4hnnk" path="res://zombie.tscn" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://ddwjy55njv7ya" path="res://placeholders_move_platform.tscn" id="6_7mycd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h2yge"]
+size = Vector2(705.75, 41)
+
+[sub_resource type="GDScript" id="GDScript_5vw27"]
+script/source = "extends StaticBody2D
+
+
+
+func _physics_process(delta: float) -> void:
+	position.x += 200 * delta
+	move_and_collide()
+"
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_1bvp3"]
+a = Vector2(375, 89)
+b = Vector2(147, 270)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lquwl"]
+size = Vector2(30, 144)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_h2yge"]
+a = Vector2(-79, -247)
+b = Vector2(53, -248)
+
+[sub_resource type="Curve2D" id="Curve2D_7mycd"]
+_data = {
+"points": PackedVector2Array(0, 0, 0, 0, -1, -2, 0, 0, 0, 0, -5, -178, 0, 0, 0, 0, 241, -178, 0, 0, 0, 0, 239, -5, 0, 0, 0, 0, -2, -4)
+}
+point_count = 5
+
+[node name="Main" type="Node2D"]
+
+[node name="player" parent="." instance=ExtResource("1_ig7tw")]
+position = Vector2(63, 531)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(-221, 3)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(577, 628)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-133, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+unique_name_in_owner = true
+position = Vector2(918, 642)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-133, -150)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(918, 536)
+shape = SubResource("RectangleShape2D_h2yge")
+
+[node name="bounds_platfor" parent="." instance=ExtResource("2_272bh")]
+position = Vector2(910, 440)
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(180, -60)
+script = SubResource("GDScript_5vw27")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
+shape = SubResource("SegmentShape2D_1bvp3")
+
+[node name="StaticBody2D6" type="StaticBody2D" parent="."]
+position = Vector2(769, 43)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D6"]
+shape = SubResource("SegmentShape2D_1bvp3")
+
+[node name="save_box" parent="." instance=ExtResource("2_0xm2m")]
+position = Vector2(637, 564)
+
+[node name="StaticBody2D7" type="StaticBody2D" parent="."]
+position = Vector2(212, 99)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D7"]
+position = Vector2(815, 290)
+shape = SubResource("RectangleShape2D_lquwl")
+
+[node name="RayCast2D" parent="." instance=ExtResource("3_h2yge")]
+position = Vector2(243, 449)
+target_position = Vector2(5, 154)
+
+[node name="StaticBody2D5" type="StaticBody2D" parent="."]
+position = Vector2(680, 254)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D5"]
+position = Vector2(149, 289)
+shape = SubResource("SegmentShape2D_h2yge")
+one_way_collision = true
+
+[node name="ballon" parent="." instance=ExtResource("4_1bvp3")]
+position = Vector2(1038, 58)
+
+[node name="zombie" parent="." instance=ExtResource("5_lquwl")]
+position = Vector2(629, 326)
+
+[node name="placeholders_move_platform" parent="." instance=ExtResource("6_7mycd")]
+position = Vector2(606, 268)
+curve = SubResource("Curve2D_7mycd")

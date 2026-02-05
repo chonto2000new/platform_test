@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://e8rxf15y7e77"]
+
+[ext_resource type="Script" uid="uid://rtstmg7btmbl" path="res://bola_fuego.gd" id="1_vigm8"]
+[ext_resource type="PackedScene" uid="uid://jaxbj6cy7dk" path="res://cortina_fuego.tscn" id="2_8m6cd"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_mu8yu"]
+
+[node name="BolaFuego" type="Area2D" unique_id=501816533]
+collision_layer = 16
+collision_mask = 0
+script = ExtResource("1_vigm8")
+cortina_scene = ExtResource("2_8m6cd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1445401221]
+shape = SubResource("CircleShape2D_mu8yu")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1672802151]
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+color = Color(0.66235065, 0.66235036, 0, 1)
+
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=587196141]
+target_position = Vector2(0, 15)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

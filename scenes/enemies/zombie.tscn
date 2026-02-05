@@ -1,0 +1,51 @@
+[gd_scene load_steps=5 format=3 uid="uid://uwp1s5q4hnnk"]
+
+[ext_resource type="Script" uid="uid://dul6obbclo1g5" path="res://scenes/enemies/zombie.gd" id="1_roy8y"]
+[ext_resource type="Texture2D" uid="uid://diy0v4oyworih" path="res://icon.svg" id="1_uiaus"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uiaus"]
+size = Vector2(50, 49)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_roy8y"]
+size = Vector2(50, 49)
+
+[node name="zombie" type="CharacterBody2D" groups=["enemies"]]
+collision_layer = 20
+collision_mask = 33
+script = ExtResource("1_roy8y")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-4.7683716e-07, -4.7683716e-07)
+scale = Vector2(0.39843747, 0.39843747)
+texture = ExtResource("1_uiaus")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_uiaus")
+
+[node name="left" type="RayCast2D" parent="."]
+position = Vector2(-21, 0)
+target_position = Vector2(-10, 0)
+
+[node name="left_down" type="RayCast2D" parent="."]
+position = Vector2(-24, 13)
+target_position = Vector2(0, 13)
+
+[node name="right" type="RayCast2D" parent="."]
+position = Vector2(17, 0)
+target_position = Vector2(14, 0)
+
+[node name="right_down" type="RayCast2D" parent="."]
+position = Vector2(24, 15)
+target_position = Vector2(0, 11)
+
+[node name="damage_area" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 32
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="damage_area"]
+position = Vector2(0, 0.5)
+shape = SubResource("RectangleShape2D_roy8y")
+debug_color = Color(0.89780116, 0, 0.36388177, 0.41960785)
+
+[connection signal="area_entered" from="damage_area" to="." method="_on_damage_area_area_entered"]

@@ -1,0 +1,40 @@
+[gd_scene load_steps=2 format=3 uid="uid://cjc3k8vgy8ep5"]
+
+[ext_resource type="Script" uid="uid://bytxrnonwkpsx" path="res://scenes/menu/play.gd" id="1_lti8b"]
+
+[node name="Menu" type="Node2D"]
+
+[node name="GameMenu" type="CanvasLayer" parent="."]
+
+[node name="play" type="Button" parent="GameMenu"]
+offset_left = 298.0
+offset_top = 95.0
+offset_right = 339.0
+offset_bottom = 126.0
+focus_neighbor_top = NodePath("../exit")
+focus_neighbor_bottom = NodePath("../options")
+mouse_filter = 2
+text = "play"
+script = ExtResource("1_lti8b")
+
+[node name="options" type="Button" parent="GameMenu"]
+offset_left = 301.0
+offset_top = 141.0
+offset_right = 368.0
+offset_bottom = 172.0
+focus_neighbor_top = NodePath("../play")
+focus_neighbor_bottom = NodePath("../exit")
+mouse_filter = 2
+text = "options"
+
+[node name="exit" type="Button" parent="GameMenu"]
+offset_left = 302.0
+offset_top = 232.0
+offset_right = 339.0
+offset_bottom = 263.0
+focus_neighbor_top = NodePath("../options")
+focus_neighbor_bottom = NodePath("../play")
+mouse_filter = 2
+text = "exit"
+
+[connection signal="pressed" from="GameMenu/play" to="GameMenu/play" method="_on_pressed"]

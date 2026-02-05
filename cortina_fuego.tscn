@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://jaxbj6cy7dk"]
+
+[ext_resource type="Script" uid="uid://c4xtljngbnjot" path="res://cortina_fuego.gd" id="1_tip0j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5k7q"]
+
+[node name="CortinaFuego" type="Area2D" unique_id=295673638]
+collision_layer = 16
+script = ExtResource("1_tip0j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1585923561]
+shape = SubResource("RectangleShape2D_o5k7q")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1552567754]
+offset_left = -4.0
+offset_top = -30.0
+offset_right = 5.0
+offset_bottom = 10.0
+color = Color(0.5487767, 0.10236692, 0.10960076, 1)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="." unique_id=1617374711]

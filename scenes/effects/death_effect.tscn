@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://bq43qffqxf2a0"]
+
+[ext_resource type="Script" uid="uid://c6dwdjwwpwawn" path="res://player_explosion.gd" id="1_4pg65"]
+
+[sub_resource type="Gradient" id="Gradient_f2hov"]
+colors = PackedColorArray(0.5647059, 0, 0, 1, 1, 1, 1, 1)
+
+[node name="DeathEffect" type="CPUParticles2D" unique_id=1931635160]
+emitting = false
+amount = 500
+one_shot = true
+speed_scale = 3.0
+explosiveness = 1.0
+spread = 180.0
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 300.0
+color = Color(1, 1, 0.40784314, 1)
+color_ramp = SubResource("Gradient_f2hov")
+script = ExtResource("1_4pg65")

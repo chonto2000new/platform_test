@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://brruvy15wxmj7"
+path="res://.godot/imported/Contra (NES) Music - Title Theme.ogg-3299d59c287ffe83fa0e932d79b1816b.oggvorbisstr"
+
+[deps]
+
+source_file="res://sounds/music/menu/Contra (NES) Music - Title Theme.ogg"
+dest_files=["res://.godot/imported/Contra (NES) Music - Title Theme.ogg-3299d59c287ffe83fa0e932d79b1816b.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

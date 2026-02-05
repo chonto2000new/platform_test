@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://hk1pdkcov6m6"]
+
+[ext_resource type="Script" uid="uid://bxlgesy0st2jd" path="res://cartel.gd" id="1_8xmx3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5b87m"]
+
+[node name="Cartel" type="Node2D" unique_id=281053949]
+script = ExtResource("1_8xmx3")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1794051095]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=759781880]
+shape = SubResource("RectangleShape2D_5b87m")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
