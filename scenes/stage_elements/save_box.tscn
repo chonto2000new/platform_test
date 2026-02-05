@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://b2ury3sa2rlsb" path="res://scenes/stage_elements/save_box.gd" id="1_f1x8s"]
 [ext_resource type="Texture2D" uid="uid://diy0v4oyworih" path="res://icon.svg" id="2_nlxkd"]
+[ext_resource type="LabelSettings" uid="uid://cxgra0sh18x1v" path="res://scenes/menu/founds/texto_pixel_art.tres" id="3_prors"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1bvp3"]
 size = Vector2(32, 33)
@@ -18,5 +19,13 @@ texture = ExtResource("2_nlxkd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=312596035]
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_1bvp3")
+
+[node name="Label" type="Label" parent="." unique_id=1981152002]
+offset_left = -22.0
+offset_top = -41.0
+offset_right = 26.0
+offset_bottom = -15.0
+text = "save"
+label_settings = ExtResource("3_prors")
 
 [connection signal="area_entered" from="." to="." method="_on_area_entered"]

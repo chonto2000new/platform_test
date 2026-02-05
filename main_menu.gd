@@ -9,8 +9,8 @@ extends Control
 @onready var menu_slots = $MenuSlots
 @onready var options: Control = $Options
 
-
-const NIVEL_PRUEBAS = "res://main.tscn"
+#aqui se opne el primer nivel que se va con el play
+const NIVEL_PRUEBAS = "res://levels/tutorial.tscn"
 # Referencias a los botones clave para el "Focus" (Teclado)
 @onready var btn_jugar = $MenuInicio/BtnJugar
 @onready var slot_1 = $MenuSlots/HBoxSlots/SaveSlot
